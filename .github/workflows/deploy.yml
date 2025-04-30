@@ -24,6 +24,6 @@ jobs:
           set -e
           cd ~/saas-docker/frontend || { echo "Frontend directory not found"; exit 1; }
           git pull || { echo "Git pull failed"; exit 1; }
-          docker compose -f ../docker-compose.yml build frontend || { echo "Docker build failed"; exit 1; }
-          docker compose -f ../docker-compose.yml restart frontend || { echo "Docker restart failed"; exit 1; }
+          docker-compose -f ../docker-compose.yml build frontend || { echo "Docker build failed"; exit 1; }
+          docker-compose -f ../docker-compose.yml restart frontend || { echo "Docker restart failed"; exit 1; }
         EOF
