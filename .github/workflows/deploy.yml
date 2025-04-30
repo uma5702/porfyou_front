@@ -21,8 +21,9 @@ jobs:
     - name: Deploy frontend to EC2
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@13.54.117.136 << 'EOF'
-          cd ~/saas-docker/frontend
-          git pull
-          docker compose -f ../docker-compose.yml build frontend
-          docker compose -f ../docker-compose.yml restart frontend
+          set -e
+          cd ~/saas-docker/frontend || { echo "Frontend directory not found"; exit 1; }
+          git pull || { echo "Git pull failed"; exit 1; }
+          docker compose -f ../docker-compose.yml build frontend || { echo "Docker build failed"; exit 1; }
+          docker compose -f ../docker-compose.yml restart frontend || { echo "Docker restart failed"; exit 1; }
         EOF
