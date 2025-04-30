@@ -20,7 +20,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="p-4 w-[300px]">
+    <div className="p-4 w-[300px] mx-auto mt-20 border rounded shadow-lg">
       <h1 className="text-2xl font-bold mb-4">Sign In</h1>
       <p className="text-gray-600 text-sm ">입력해주세요.</p>
       <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="border p-2 w-full mb-2" />
