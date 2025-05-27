@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy frontend to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@54.66.16.248 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@3.25.97.51 << 'EOF'
           set -e
           cd ~/saas-docker/frontend || { echo "Frontend directory not found"; exit 1; }
           git pull || { echo "Git pull failed"; exit 1; }
